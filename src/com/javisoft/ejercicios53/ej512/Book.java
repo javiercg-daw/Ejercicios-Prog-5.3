@@ -1,29 +1,28 @@
 package com.javisoft.ejercicios53.ej512;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.GregorianCalendar;
+import java.util.HashSet;
 
 public class Book {
     private final String title;
-    private final Author[] authors;
+    private final HashSet<Author> authors;
     private final GregorianCalendar releaseDate;
     private final int pages;
 
-    public Book(String title, Author[] authors, GregorianCalendar releaseDate, int pages) {
+    public Book(String title, HashSet<Author> authors, GregorianCalendar releaseDate, int pages) {
         this.title = title;
         this.authors = authors;
         this.releaseDate = releaseDate;
         this.pages = pages;
     }
 
-    public Book(String title, Author author, GregorianCalendar releaseDate, int pages) {
-        this(title, new Author[]{author}, releaseDate, pages);
-    }
-
     public String getTitle() {
         return title;
     }
 
-    public Author[] getAuthors() {
+    public HashSet<Author> getAuthors() {
         return authors;
     }
 
@@ -33,5 +32,10 @@ public class Book {
 
     public int getPages() {
         return pages;
+    }
+
+    @Override
+    public String toString() {
+        return title + " (" + authors.toString() + ", " + releaseDate.toString() + "). " + pages + " pages.";
     }
 }

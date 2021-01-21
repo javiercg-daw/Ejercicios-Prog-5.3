@@ -57,4 +57,14 @@ class AuthorTest {
     void getDateOfBirth() {
         assertEquals(author.getDateOfBirth(), dateOfBirth);
     }
+
+    @Test
+    void toStringTest() {
+        String output = "Author{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                '}';
+        assertEquals(author.toString(), output);
+    }
 }

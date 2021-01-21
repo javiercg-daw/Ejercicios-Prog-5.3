@@ -3,8 +3,10 @@ package com.javisoft.ejercicios53.ej512;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.HashSet;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,7 +19,8 @@ class BookTest {
     private final int pagesBook2;
     private final Author author1;
     private final Author author2;
-    private final Author[] authors;
+    private final HashSet<Author> authorsBook1;
+    private final HashSet<Author> authorsBook2
     private Book book1;
     private Book book2;
 
@@ -30,13 +33,17 @@ class BookTest {
         this.pagesBook2 = 365;
         this.author1 = new Author("J. R. R.", "Tolkien", new GregorianCalendar(1892, Calendar.JANUARY, 3));
         this.author2 = new Author("Christopher", "Tolkien", new GregorianCalendar(1924, Calendar.NOVEMBER, 24));
-        this.authors = new Author[]{author1, author2};
+        this.authorsBook1 = new HashSet<>();
+        this.authorsBook2 = new HashSet<>();
+        authorsBook1.add(author1);
+        authorsBook2.add(author1);
+        authorsBook2.add(author2);
     }
 
     @BeforeEach
     void setUp() {
-        this.book1 = new Book(titleBook1, author1, releaseDateBook1, pagesBook1);
-        this.book2 = new Book(titleBook2, authors, releaseDateBook2, pagesBook2);
+        this.book1 = new Book(titleBook1, authorsBook1, releaseDateBook1, pagesBook1);
+        this.book2 = new Book(titleBook2, authorsBook2, releaseDateBook2, pagesBook2);
     }
 
     @Test
@@ -47,7 +54,7 @@ class BookTest {
 
     @Test
     void getAuthors() {
-        assertArrayEquals(book1.getAuthors(), new Author[]{author1});
+        assertEquals(book1.getAuthors(), );
         assertArrayEquals(book2.getAuthors(), authors);
     }
 
@@ -61,5 +68,10 @@ class BookTest {
     void getPages() {
         assertEquals(book1.getPages(), pagesBook1);
         assertEquals(book2.getPages(), pagesBook2);
+    }
+
+    @Test
+    void toString() {
+        assertEquals(book1.toString(), titleBook1 + " (" + Arrays.toString(authors) + ", " + releaseDate.toString() + "). " + pages + " pages.";
     }
 }
