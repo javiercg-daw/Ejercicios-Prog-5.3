@@ -11,20 +11,20 @@ import java.util.GregorianCalendar;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AuthorTest {
-    private final String firstName;
-    private final String lastName;
-    private final GregorianCalendar dateOfBirth;
+    private final String FIRST_NAME;
+    private final String LAST_NAME;
+    private final GregorianCalendar DATE_OF_BIRTH;
     private Author author;
 
     public AuthorTest() {
-        this.firstName = "John Ronald Reuel";
-        this.lastName = "Tolkien";
-        this.dateOfBirth = new GregorianCalendar(1892, Calendar.JANUARY, 3);
+        this.FIRST_NAME = "John Ronald Reuel";
+        this.LAST_NAME = "Tolkien";
+        this.DATE_OF_BIRTH = new GregorianCalendar(1892, Calendar.JANUARY, 3);
     }
 
     @BeforeEach
     void setUp() {
-        this.author = new Author(firstName, lastName, dateOfBirth);
+        this.author = new Author(FIRST_NAME, LAST_NAME, DATE_OF_BIRTH);
     }
 
     @Test
@@ -41,7 +41,7 @@ class AuthorTest {
 
     @Test
     void getLastName() {
-        assertEquals(author.getLastName(), lastName);
+        assertEquals(author.getLastName(), LAST_NAME);
     }
 
     @ParameterizedTest
@@ -55,15 +55,15 @@ class AuthorTest {
 
     @Test
     void getDateOfBirth() {
-        assertEquals(author.getDateOfBirth(), dateOfBirth);
+        assertEquals(author.getDateOfBirth(), DATE_OF_BIRTH);
     }
 
     @Test
     void toStringTest() {
         String output = "Author{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
+                "firstName='" + FIRST_NAME + '\'' +
+                ", lastName='" + LAST_NAME + '\'' +
+                ", dateOfBirth=" + DATE_OF_BIRTH +
                 '}';
         assertEquals(author.toString(), output);
     }

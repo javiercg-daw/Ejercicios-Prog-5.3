@@ -11,38 +11,38 @@ import static org.junit.jupiter.api.Assertions.*;
 class AccountTest {
 
     private Account account;
-    private final String id;
-    private final Client owner;
-    private final double balance;
-    private final Client otherClient;
+    private final String ID;
+    private final Client ACCOUNT_OWNER;
+    private final double BALANCE;
+    private final Client OTHER_CLIENT;
     private Account otherAccount;
 
     public AccountTest() {
-        this.id = "00001";
-        this.owner = new Client("0000", "Homer", "Simpson");
-        this.balance = 735.2;
-        this.otherClient = new Client("0001", "Ambrosio", "Contreras");
+        this.ID = "00001";
+        this.ACCOUNT_OWNER = new Client("0000", "Homer", "Simpson");
+        this.BALANCE = 735.2;
+        this.OTHER_CLIENT = new Client("0001", "Ambrosio", "Contreras");
     }
 
     @BeforeEach
     void setUp() {
-        this.account = new Account(id, owner, balance);
-        this.otherAccount = new Account("00011", otherClient, 472.7);
+        this.account = new Account(ID, ACCOUNT_OWNER, BALANCE);
+        this.otherAccount = new Account("00011", OTHER_CLIENT, 472.7);
     }
 
     @Test
     void getId() {
-        assertEquals(account.getId(), id);
+        assertEquals(account.getId(), ID);
     }
 
     @Test
     void getOwner() {
-        assertEquals(account.getOwner(), owner);
+        assertEquals(account.getOwner(), ACCOUNT_OWNER);
     }
 
     @Test
     void getBalance() {
-        assertEquals(account.getBalance(), balance);
+        assertEquals(account.getBalance(), BALANCE);
     }
 
     @ParameterizedTest
@@ -93,9 +93,9 @@ class AccountTest {
     @Test
     void testToString() {
         String newStr = "Account{" +
-                "id='" + id + '\'' +
-                ", owner=" + owner +
-                ", balance=" + balance +
+                "id='" + ID + '\'' +
+                ", owner=" + ACCOUNT_OWNER +
+                ", balance=" + BALANCE +
                 '}';
 
         assertEquals(account.toString(), newStr);

@@ -8,34 +8,34 @@ import static org.junit.jupiter.api.Assertions.*;
 class ClientTest {
 
     private Client client;
-    private final String id;
-    private final String firstName;
-    private final String lastName;
+    private final String ID;
+    private final String FIRST_NAME;
+    private final String LAST_NAME;
 
     public ClientTest() {
-        this.id = "0000";
-        this.firstName = "Homer";
-        this.lastName = "Simpson";
+        this.ID = "0000";
+        this.FIRST_NAME = "Homer";
+        this.LAST_NAME = "Simpson";
     }
 
     @BeforeEach
     void setUp() {
-        this.client = new Client(id, firstName, lastName);
+        this.client = new Client(ID, FIRST_NAME, LAST_NAME);
     }
 
     @Test
     void getId() {
-        assertEquals(client.getId(), id);
+        assertEquals(client.getId(), ID);
     }
 
     @Test
     void getFirstName() {
-        assertEquals(client.getFirstName(), firstName);
+        assertEquals(client.getFirstName(), FIRST_NAME);
     }
 
     @Test
     void getLastName() {
-        assertEquals(client.getLastName(), lastName);
+        assertEquals(client.getLastName(), LAST_NAME);
     }
 
     @Test
@@ -55,9 +55,9 @@ class ClientTest {
     @Test
     void testToString() {
         String testStr = "Client{" +
-                "id='" + id + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                "id='" + ID + '\'' +
+                ", firstName='" + FIRST_NAME + '\'' +
+                ", lastName='" + LAST_NAME + '\'' +
                 '}';
         assertEquals(client.toString(), testStr);
     }
