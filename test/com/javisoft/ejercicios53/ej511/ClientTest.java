@@ -8,15 +8,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class ClientTest {
 
     private Client client;
-    private final String ID;
-    private final String FIRST_NAME;
-    private final String LAST_NAME;
-
-    public ClientTest() {
-        this.ID = "0000";
-        this.FIRST_NAME = "Homer";
-        this.LAST_NAME = "Simpson";
-    }
+    private final String ID = "0000";
+    private final String FIRST_NAME = "Homer";
+    private final String LAST_NAME = "Simpson";
 
     @BeforeEach
     void setUp() {

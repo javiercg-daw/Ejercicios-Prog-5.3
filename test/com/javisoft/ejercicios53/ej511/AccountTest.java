@@ -10,19 +10,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AccountTest {
 
+    private final String ID = "00001";
+    private final Client ACCOUNT_OWNER = new Client("0000", "Homer", "Simpson");
+    private final double BALANCE = 735.2;
+    private final Client OTHER_CLIENT = new Client("0001", "Ambrosio", "Contreras");
     private Account account;
-    private final String ID;
-    private final Client ACCOUNT_OWNER;
-    private final double BALANCE;
-    private final Client OTHER_CLIENT;
     private Account otherAccount;
 
-    public AccountTest() {
-        this.ID = "00001";
-        this.ACCOUNT_OWNER = new Client("0000", "Homer", "Simpson");
-        this.BALANCE = 735.2;
-        this.OTHER_CLIENT = new Client("0001", "Ambrosio", "Contreras");
-    }
 
     @BeforeEach
     void setUp() {

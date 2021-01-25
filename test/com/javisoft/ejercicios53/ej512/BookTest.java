@@ -10,37 +10,25 @@ import java.util.HashSet;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BookTest {
-    private final String TITLE_1;
-    private final GregorianCalendar RELEASE_DATE_1;
-    private final int PAGES_1;
-    private final String TITLE_2;
-    private final GregorianCalendar RELEASE_DATE_2;
-    private final int PAGES_BOOK_2;
-    private final Author AUTHOR_1;
-    private final Author AUTHOR_2;
-    private final HashSet<Author> AUTHORS_1;
-    private final HashSet<Author> AUTHORS_2;
+    private final String TITLE_1 = "The Fellowship of the Ring";
+    private final GregorianCalendar RELEASE_DATE_1 = new GregorianCalendar(1954, Calendar.JULY, 29);
+    private final int PAGES_1 = 423;
+    private final String TITLE_2 = "The Silmarillion";
+    private final GregorianCalendar RELEASE_DATE_2 = new GregorianCalendar(1977, Calendar.SEPTEMBER, 15);
+    private final int PAGES_BOOK_2 = 365;
+    private final Author AUTHOR_1 = new Author("J. R. R.", "Tolkien", new GregorianCalendar(1892, Calendar.JANUARY, 3));
+    private final Author AUTHOR_2 = new Author("Christopher", "Tolkien", new GregorianCalendar(1924, Calendar.NOVEMBER, 24));
+    private final HashSet<Author> AUTHORS_1 = new HashSet<>();
+    private final HashSet<Author> AUTHORS_2 = new HashSet<>();
     private Book book1;
     private Book book2;
 
-    public BookTest() {
-        this.TITLE_1 = "The Fellowship of the Ring";
-        this.RELEASE_DATE_1 = new GregorianCalendar(1954, Calendar.JULY, 29);
-        this.PAGES_1 = 423;
-        this.TITLE_2 = "The Silmarillion";
-        this.RELEASE_DATE_2 = new GregorianCalendar(1977, Calendar.SEPTEMBER, 15);
-        this.PAGES_BOOK_2 = 365;
-        this.AUTHOR_1 = new Author("J. R. R.", "Tolkien", new GregorianCalendar(1892, Calendar.JANUARY, 3));
-        this.AUTHOR_2 = new Author("Christopher", "Tolkien", new GregorianCalendar(1924, Calendar.NOVEMBER, 24));
-        this.AUTHORS_1 = new HashSet<>();
-        this.AUTHORS_2 = new HashSet<>();
-        AUTHORS_1.add(AUTHOR_1);
-        AUTHORS_2.add(AUTHOR_1);
-        AUTHORS_2.add(AUTHOR_2);
-    }
 
     @BeforeEach
     void setUp() {
+        AUTHORS_1.add(AUTHOR_1);
+        AUTHORS_2.add(AUTHOR_1);
+        AUTHORS_2.add(AUTHOR_2);
         this.book1 = new Book(TITLE_1, AUTHORS_1, RELEASE_DATE_1, PAGES_1);
         this.book2 = new Book(TITLE_2, AUTHORS_2, RELEASE_DATE_2, PAGES_BOOK_2);
     }

@@ -11,16 +11,10 @@ import java.util.GregorianCalendar;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AuthorTest {
-    private final String FIRST_NAME;
-    private final String LAST_NAME;
-    private final GregorianCalendar DATE_OF_BIRTH;
+    private final String FIRST_NAME = "John Ronald Reuel";
+    private final String LAST_NAME = "Tolkien";
+    private final GregorianCalendar DATE_OF_BIRTH = new GregorianCalendar(1892, Calendar.JANUARY, 3);
     private Author author;
-
-    public AuthorTest() {
-        this.FIRST_NAME = "John Ronald Reuel";
-        this.LAST_NAME = "Tolkien";
-        this.DATE_OF_BIRTH = new GregorianCalendar(1892, Calendar.JANUARY, 3);
-    }
 
     @BeforeEach
     void setUp() {

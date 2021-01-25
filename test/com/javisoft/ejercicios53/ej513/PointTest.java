@@ -8,19 +8,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PointTest {
 
-    private final double X_1;
-    private final double Y_1;
-    private final double X_2;
-    private final double Y_2;
+    private final double X_1 = -5.66;
+    private final double Y_1 = 54.54;
+    private final double X_2 = 3454.34;
+    private final double Y_2 = -452.623;
     private Point point1;
     private Point point2;
-
-    public PointTest() {
-        this.X_1 = -5.66;
-        this.Y_1 = 54.54;
-        this.X_2 = 3454.34;
-        this.Y_2 = -452.623;
-    }
 
     @BeforeEach
     void setUp() {

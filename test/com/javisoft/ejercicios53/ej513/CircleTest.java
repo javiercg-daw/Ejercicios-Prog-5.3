@@ -39,7 +39,7 @@ class CircleTest {
     @Test
     void getRadius() {
         assertEquals(circle.getRadius(), RADIUS);
-    }
+    } 
 
     @Test
     void setCenter() {
