@@ -23,12 +23,12 @@ class AuthorTest {
 
     @Test
     void getFirstName() {
-        assertEquals(author.getFirstName(), "John Ronald Reuel");
+        assertEquals(author.getFirstName(), FIRST_NAME);
     }
 
     @Test
     void setFirstName() {
-        String newFirstName = "J. R. R.";
+        String newFirstName = LAST_NAME;
         author.setFirstName(newFirstName);
         assertEquals(author.getFirstName(), newFirstName);
     }

@@ -11,16 +11,16 @@ import static org.junit.jupiter.api.Assertions.*;
 class AccountTest {
 
     private final String ID = "00001";
-    private final Client ACCOUNT_OWNER = new Client("0000", "Homer", "Simpson");
-    private final double BALANCE = 735.2;
-    private final Client OTHER_CLIENT = new Client("0001", "Ambrosio", "Contreras");
+    private final Client ACCOUNT_OWNER = new Client("66666666Q", "Homer", "Simpson", "666666666");
+    private final double INITIAL_BALANCE = 735.2;
+    private final Client OTHER_CLIENT = new Client("04206947V", "Ambrosio", "Contreras", "999999999");
     private Account account;
     private Account otherAccount;
 
 
     @BeforeEach
     void setUp() {
-        this.account = new Account(ID, ACCOUNT_OWNER, BALANCE);
+        this.account = new Account(ID, ACCOUNT_OWNER, INITIAL_BALANCE);
         this.otherAccount = new Account("00011", OTHER_CLIENT, 472.7);
     }
 
@@ -36,7 +36,7 @@ class AccountTest {
 
     @Test
     void getBalance() {
-        assertEquals(account.getBalance(), BALANCE);
+        assertEquals(account.getBalance(), INITIAL_BALANCE);
     }
 
     @ParameterizedTest
@@ -89,7 +89,7 @@ class AccountTest {
         String newStr = "Account{" +
                 "id='" + ID + '\'' +
                 ", owner=" + ACCOUNT_OWNER +
-                ", balance=" + BALANCE +
+                ", balance=" + INITIAL_BALANCE +
                 '}';
 
         assertEquals(account.toString(), newStr);
