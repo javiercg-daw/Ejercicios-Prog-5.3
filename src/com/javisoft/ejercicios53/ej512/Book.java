@@ -1,9 +1,6 @@
 package com.javisoft.ejercicios53.ej512;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.GregorianCalendar;
-import java.util.HashSet;
+import java.util.*;
 
 public class Book {
     private final String title;
@@ -36,6 +33,6 @@ public class Book {
 
     @Override
     public String toString() {
-        return title + " (" + authors.toString() + ", " + releaseDate.toString() + "). " + pages + " pages.";
+        return title + " (" + authors.toString() + ", " + releaseDate.get(Calendar.YEAR) + "). " + pages + " pages.";
     }
 }

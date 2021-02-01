@@ -1,5 +1,6 @@
 package com.javisoft.ejercicios53.ej515;
 
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class Soldier {
@@ -62,6 +63,6 @@ public class Soldier {
 
     public String toString() {
         return rank + " " +
-                name + ", " + type + ". Date of recruitment: " + dateOfRecruitment + ". Firepower: " + firepower;
+                name + ", " + type + ". Date of recruitment: " + dateOfRecruitment.get(Calendar.YEAR) + ". Firepower: " + firepower;
     }
 }

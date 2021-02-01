@@ -46,28 +46,37 @@ class SquadTest {
     @Test
     void removeSoldier() {
         squad.removeSoldier(id1);
-        System.out.println(squad.toString());
-        assertFalse(squad.containsID(id1));
-    }
-
-    @Test
-    void getSoldiers() {
-
+        assertFalse(squad.contains(id1));
     }
 
     @Test
     void getFirepower() {
+        assertEquals(squad.getFirepower(), firepower1 + firepower2);
     }
 
     @Test
     void makeLeader() {
+        squad.makeLeader(id1);
+        assertEquals(squad.getLeader().getId(), id1);
     }
 
     @Test
     void contains() {
+        assertTrue(squad.contains(id1, name1, type1, rank1, date1, firepower1));
     }
 
     @Test
-    void containsSoldierWithID() {
+    void containsReturnsFalse() {
+        assertFalse(squad.contains(546, name1, type1, rank1, date1, firepower1));
+    }
+
+    @Test
+    void containsID() {
+        assertTrue(squad.contains(id1));
+    }
+
+    @Test
+    void containsIDReturnsFalse() {
+        assertFalse(squad.contains(524));
     }
 }

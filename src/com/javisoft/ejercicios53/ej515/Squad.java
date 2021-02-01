@@ -16,13 +16,13 @@ public class Squad {
     }
 
     public boolean addSoldier(int id, String name, String type, String rank, GregorianCalendar dateOfRecruitment, double firepower) {
-        if (containsID(id)) {
+        if (contains(id)) {
             return false;
         }
         return soldiers.add(new Soldier(id, name, type, rank, dateOfRecruitment, firepower));
     }
 
-    protected boolean containsID(int id) {
+    protected boolean contains(int id) {
         return soldiers.stream().anyMatch(s -> s.getId() == id);
     }
 
@@ -38,10 +38,10 @@ public class Squad {
     }
 
     public boolean removeSoldier(int id) {
-        if (!containsID(id)) {
+        if (!contains(id)) {
             return false;
         }
-        soldiers = (HashSet<Soldier>) soldiers.stream().filter(s -> s.getId() == id).collect(Collectors.toSet());
+        soldiers = soldiers.stream().filter(s -> s.getId() != id).collect(Collectors.toSet());
         return true;
     }
 
@@ -54,7 +54,7 @@ public class Squad {
     }
 
     public boolean makeLeader(int id) {
-        if (!containsID(id)) {
+        if (!contains(id)) {
             return false;
         }
         this.leader = (Soldier) soldiers.stream().filter(s -> s.getId() == id).toArray()[0];

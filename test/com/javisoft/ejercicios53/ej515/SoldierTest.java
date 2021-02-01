@@ -83,7 +83,8 @@ class SoldierTest {
 
     @Test
     void toStringTest() {
-        String output = "Lieutenant Colonel Bartolo Casas, Artillery. Date of recruitment: " + dateOfRecruitment.toString() + ". Firepower: 666.66";
+        String output = "Lieutenant Colonel Bartolo Casas, Artillery. Date of recruitment: " + dateOfRecruitment.get(Calendar.YEAR) + ". Firepower: 666.66";
+        System.out.println(output);
         assertEquals(soldier.toString(), output);
     }
 }
