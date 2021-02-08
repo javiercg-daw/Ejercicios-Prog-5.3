@@ -59,7 +59,7 @@ class BookTest {
 
     @Test
     void testToString() {
-        assertEquals(book1.toString(), TITLE_1 + " (" + AUTHORS_1.toString() + ", " + RELEASE_DATE_1.toString() + "). " + PAGES_1 + " pages.");
-        assertEquals(book2.toString(), TITLE_2 + " (" + AUTHORS_2.toString() + ", " + RELEASE_DATE_2.toString() + "). " + PAGES_BOOK_2 + " pages.");
+        assertEquals(book1.toString(), TITLE_1 + " (" + AUTHORS_1.toString() + ", " + RELEASE_DATE_1.get(Calendar.YEAR) + "). " + PAGES_1 + " pages.");
+        assertEquals(book2.toString(), TITLE_2 + " (" + AUTHORS_2.toString() + ", " + RELEASE_DATE_2.get(Calendar.YEAR) + "). " + PAGES_BOOK_2 + " pages.");
     }
 }
