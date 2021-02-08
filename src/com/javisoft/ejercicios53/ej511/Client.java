@@ -8,8 +8,7 @@ public class Client {
     private String firstName;
     private String lastName;
     private String phoneNumber;
-    private static final char[] DNI_LETTERS = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B',
-            'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
+
 
     public Client(String dni, String firstName, String lastName, String phoneNumber) throws IllegalArgumentException {
         if (!isValidDNI(dni)) {
@@ -72,6 +71,8 @@ public class Client {
     }
 
     protected static boolean isValidDNI(String dni) {
+        final char[] DNI_LETTERS = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B',
+                'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
         return dni.matches("\\d{8}[a-zA-Z]") && dni.length() == 9 && dni.toUpperCase().charAt(8) == DNI_LETTERS[Integer.parseInt(dni.substring(0, 8)) % 23];
     }
 
