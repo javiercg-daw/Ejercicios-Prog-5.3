@@ -1,22 +1,22 @@
 package com.javisoft.ejercicios53.ej511;
 
 public class Account {
-    private final String id;
+    private final String iban;
     private final Client owner;
     private double balance;
 
-    public Account(String id, Client owner, double balance) {
-        this.id = id;
+    public Account(String iban, Client owner, double balance) {
+        this.iban = iban;
         this.owner = owner;
         this.balance = balance;
     }
 
-    public Account(String id, Client owner) {
-        this(id, owner, 0.0);
+    public Account(String iban, Client owner) {
+        this(iban, owner, 0.0);
     }
 
-    public String getId() {
-        return id;
+    public String getIban() {
+        return iban;
     }
 
     public Client getOwner() {
@@ -51,7 +51,7 @@ public class Account {
     @Override
     public String toString() {
         return "Account{" +
-                "id='" + id + '\'' +
+                "id='" + iban + '\'' +
                 ", owner=" + owner +
                 ", balance=" + balance +
                 '}';

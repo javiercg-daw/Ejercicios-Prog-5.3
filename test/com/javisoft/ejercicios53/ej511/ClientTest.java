@@ -1,7 +1,13 @@
 package com.javisoft.ejercicios53.ej511;
 
+import com.javisoft.ejercicios53.ej513.Circle;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
+
+import java.util.InputMismatchException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,9 +24,21 @@ class ClientTest {
         this.client = new Client(ID, FIRST_NAME, LAST_NAME, PHONE_NUMBER);
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"66666665Q", "777777777G", "04206947N", "123456789", "a123345", "9999999A", "45323", "a5443", "a123123123", "999999889"})
+    void constructorThrowsExceptionInvalidDNI(String dni) {
+        assertThrows(IllegalArgumentException.class, () -> new Client(dni, "Anuel", "AA", "123123123"));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"23541342Z", "75433123T", "54332433Q"})
+    void constructorDoesNotThrowExceptionValidDNI(String dni) {
+        assertDoesNotThrow(() -> new Client(dni, "A", "b", "3132098"));
+    }
+
     @Test
     void getId() {
-        assertEquals(client.getId(), ID);
+        assertEquals(client.getDni(), ID);
     }
 
     @Test
@@ -72,4 +90,17 @@ class ClientTest {
     void testEquals() {
         assertEquals(client, new Client("04206947V", "Homer", "Simpson", "666666666"));
     }
+
+    @ParameterizedTest
+    @CsvSource({
+            "12312323D, True",
+            "04206947V, True",
+            "12312323A, False",
+            "34254243K, True",
+            "34254243L, False"
+    })
+    void isValidDNITest(String dni, boolean output) {
+        assertEquals(Client.isValidDNI(dni), output);
+    }
+
 }

@@ -1,22 +1,28 @@
 package com.javisoft.ejercicios53.ej511;
 
+import java.util.InputMismatchException;
 import java.util.Objects;
 
 public class Client {
-    private final String id;
+    private final String dni;
     private String firstName;
     private String lastName;
     private String phoneNumber;
+    private static final char[] DNI_LETTERS = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B',
+            'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
 
-    public Client(String id, String firstName, String lastName, String phoneNumber) {
-        this.id = id;
+    public Client(String dni, String firstName, String lastName, String phoneNumber) throws IllegalArgumentException {
+        if (!isValidDNI(dni)) {
+            throw new IllegalArgumentException("Invalid DNI number provided.");
+        }
+        this.dni = dni;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
     }
 
-    public String getId() {
-        return id;
+    public String getDni() {
+        return dni;
     }
 
     public String getFirstName() {
@@ -46,7 +52,7 @@ public class Client {
     @Override
     public String toString() {
         return "Client{" +
-                "id='" + id + '\'' +
+                "id='" + dni + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 '}';
@@ -57,11 +63,16 @@ public class Client {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Client client = (Client) o;
-        return id.equals(client.id);
+        return dni.equals(client.dni);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(dni);
     }
+
+    protected static boolean isValidDNI(String dni) {
+        return dni.matches("\\d{8}[a-zA-Z]") && dni.length() == 9 && dni.toUpperCase().charAt(8) == DNI_LETTERS[Integer.parseInt(dni.substring(0, 8)) % 23];
+    }
+
 }

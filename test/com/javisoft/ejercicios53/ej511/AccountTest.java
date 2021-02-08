@@ -26,7 +26,7 @@ class AccountTest {
 
     @Test
     void getId() {
-        assertEquals(account.getId(), ID);
+        assertEquals(account.getIban(), ID);
     }
 
     @Test

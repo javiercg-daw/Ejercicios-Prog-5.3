@@ -7,7 +7,7 @@ public class Circle {
     private Point center;
     private double radius;
 
-    public Circle(Point center, double radius) {
+    public Circle(Point center, double radius) throws IllegalArgumentException {
         if (radius <= 0.0) {
             throw new IllegalArgumentException("Provided radius is less than or equal to zero.");
         }
